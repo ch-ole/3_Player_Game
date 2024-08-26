@@ -24,14 +24,14 @@ time = data["ImageNumber"]
 #Codes as dfs[B2] and so on which can be called later.
 #Can create the same for other letters by simply copying the below code and changing
 #the letter from B to C and so on.
-fig, axs = plt.subplots(6, 10, figsize=(50, 20))
+fig, axs = plt.subplots(6, 9, figsize=(50, 20))
 eps = 1e-10
 dfs = {}
 model = {}
 modelp = {}
 prefixes = ["B", "C", "D", "E", "F", "G"]
 for prefix in prefixes:
-    for i in range(2, 12):  # Can adjust the range according to my needs
+    for i in range(2, 11):  # Can adjust the range according to my needs
         #Here we designate a subset, meaning we say that the data that starts with the prefix
         #will be selected
         prefix_i = f'{prefix}{i}'
@@ -66,7 +66,7 @@ def plot_annotate(model, r_sq, data, x, y, label, ax, ypos_factor, xpos_factor):
 
 #Trying to create a for loop to avoid having to brute force the graphs
 for j, prefix in enumerate(prefixes):
-    for i in range (2, 12):
+    for i in range (2, 11):
         #Making a "modelnumber" variable to store the prefix and i in to compact the code
         modelnumber = f'{prefix}{i}'
         #Using "get" to more safely retrieve the data from the library. If there is none, it will return "none"
@@ -107,7 +107,7 @@ coef_data = pd.DataFrame(columns=["Position on 96 well plate", "Slope of Resista
 
 #Trying to create a table for the slopes of the resistant cells to see how they look
 for j, prefix in enumerate(prefixes):
-    for i in range (2, 12):
+    for i in range (2, 11):
         modelnumber = f'{prefix}{i}'
         #Using "get" to more safely retrieve the data from the library. If there is none, it will return "none"
         df = dfs.get(modelnumber)
@@ -140,7 +140,7 @@ plt.show()
 coefp_data = pd.DataFrame(columns=["Position on 96 well plate", "Slope of Parental Culture"])
 
 for j, prefix in enumerate(prefixes):
-    for i in range (2, 12):
+    for i in range (2, 11):
         #Calling the dfs[modelnumber]  df to make it easier to write multiple times
         modelnumber = f'{prefix}{i}'
         #Using "get" to more safely retrieve the data from the library. If there is none, it will return "none"
